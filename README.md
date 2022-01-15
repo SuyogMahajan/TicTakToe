@@ -1,5 +1,6 @@
 # TicTakToe
-This is my first android project which uses some sort of data structure in it 
+This is my first android project which uses some sort of data structure in it , while making this app am learning android development and with this app I came to know about layouts , view binding in kotlin and java.
+
 
 # Output
 
