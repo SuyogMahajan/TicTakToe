@@ -4,19 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".results"
-    android:background="@color/black">
+    android:background="@color/black"
+    tools:context=".results">
 
     <TextView
         android:id="@+id/tvres"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black"
         android:fontFamily="cursive"
         android:gravity="center"
         android:text="X Wins"
         android:textColor="@color/white"
-        android:textSize="50sp"
-        android:textStyle="bold" />
+        android:textSize="70sp"
+        android:textStyle="bold"
+
+        />
 
 </FrameLayout>
