@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
     var turns: Int = 0
     lateinit var board : Array<Array<Button>>
     var boardVisited = Array(3){IntArray(3)}
-   lateinit var n:Intent
+    lateinit var n:Intent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
             }
         }
 
-        initializeVisited();
+        initializeVisited()
 
         btnReset.setOnClickListener {
             turns = 0

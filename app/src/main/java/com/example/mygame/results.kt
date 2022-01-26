@@ -2,6 +2,7 @@ package com.example.mygame
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_results.*
 
 class results : AppCompatActivity() {
