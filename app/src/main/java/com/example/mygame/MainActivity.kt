@@ -103,32 +103,30 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
             tv1.text ="Player O's turn"
         }
 
-        if(turns == 9){
+        val a = checkWinner()
+
+        if(!a && turns == 9){
             n.putExtra(key,"Match Draw")
             startActivity(n)
             return
         }
-
-        checkWinner()
     }
 
-    private fun checkWinner() {
+    private fun checkWinner(): Boolean {
 
         // check for all rows
-
-
         for(i in 0..2) {
             if (boardVisited[i][0] == boardVisited[i][1] && boardVisited[i][0] == boardVisited[i][2]) {
                 if (boardVisited[i][0] == 1) {
                     n.putExtra(key,"X Wins")
                     startActivity(n)
                     makeAlldisAble()
-                    return
+                    return true
                 } else if (boardVisited[i][0] == 0) {
                     n.putExtra(key,"O Wins")
                     startActivity(n)
                     makeAlldisAble()
-                    return
+                    return true
                 }
             }
         }
@@ -140,27 +138,28 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
                     n.putExtra(key,"X Wins")
                     startActivity(n)
                     makeAlldisAble()
-                    return
+                    return true
                 }else if(boardVisited[0][i] == 0){
                     n.putExtra(key,"O Wins")
                     startActivity(n)
                     makeAlldisAble()
-                    return
+                    return true
                 }
             }
         }
+
         // check for 2 diagonals
         if(boardVisited[0][0] == boardVisited[1][1] && boardVisited[0][0] == boardVisited[2][2]){
             if(boardVisited[0][0] == 1){
                 n.putExtra(key,"X Wins")
                 startActivity(n)
                 makeAlldisAble()
-                return
+                return true
             }else if(boardVisited[0][0] == 0){
                 n.putExtra(key,"O Wins")
                 startActivity(n)
                 makeAlldisAble()
-                return
+                return true
             }
         }
 
@@ -169,15 +168,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
                 n.putExtra(key,"X Wins")
                 startActivity(n)
                 makeAlldisAble()
-                return
+                return true
             }else if(boardVisited[0][2] == 0){
                 n.putExtra(key,"O Wins")
                 startActivity(n)
                 makeAlldisAble()
-                return
+                return true
             }
         }
 
+        return false
     }
 
     private fun makeAlldisAble() {
