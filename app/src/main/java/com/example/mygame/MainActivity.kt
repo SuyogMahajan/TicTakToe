@@ -4,12 +4,14 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import kotlinx.android.synthetic.main.activity_main.*
+import com.example.mygame.databinding.ActivityMainBinding
 import android.content.Intent as Intent
 
 val key = "res"
 
 class MainActivity : AppCompatActivity(), View.OnClickListener{
+
+    private lateinit var binding: ActivityMainBinding
 
     var PLAYER: Boolean = true
     var turns: Int = 0
@@ -19,13 +21,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         n = Intent(this,results::class.java)
         board = arrayOf(
-            arrayOf(btn1,btn2,btn3)
-            , arrayOf(btn4,btn5,btn6)
-            , arrayOf(btn7,btn8,btn9)
+            arrayOf(binding.btn1,binding.btn2,binding.btn3)
+            , arrayOf(binding.btn4,binding.btn5,binding.btn6)
+            , arrayOf(binding.btn7,binding.btn8,binding.btn9)
         )
 
         for(i in board){
@@ -36,10 +39,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
 
         initializeVisited()
 
-        btnReset.setOnClickListener {
+        binding.btnReset.setOnClickListener {
             turns = 0
             PLAYER = true
-            tv1.text ="Player X's turn"
+            binding. tv1.text ="Player X's turn"
             initializeVisited()
         }
 
@@ -98,9 +101,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
         PLAYER = !PLAYER
 
         if(PLAYER){
-            tv1.text ="Player X's turn"
+            binding.tv1.text ="Player X's turn"
         }else{
-            tv1.text ="Player O's turn"
+            binding.tv1.text ="Player O's turn"
         }
 
         val a = checkWinner()

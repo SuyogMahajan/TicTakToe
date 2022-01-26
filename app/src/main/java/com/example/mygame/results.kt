@@ -1,16 +1,20 @@
 package com.example.mygame
 
+import android.app.Instrumentation
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
-import kotlinx.android.synthetic.main.activity_results.*
+import com.example.mygame.databinding.ActivityResultsBinding
 
 class results : AppCompatActivity() {
+    private lateinit var binding: ActivityResultsBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_results)
+        binding = ActivityResultsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val matchresults = intent.getStringExtra(key)
-        tvres.text = matchresults
+        binding.tvres.text = matchresults
     }
 }
