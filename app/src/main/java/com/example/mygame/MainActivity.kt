@@ -199,7 +199,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
         val v = if(player) 1 else 0
 
         board[i][j].apply {
-            isEnabled = false;
+            isEnabled = false
             text = t
         }
         boardVisited[i][j] = v
